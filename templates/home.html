@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+</head>
+<body>
+    <ul>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/register">Create account</a></li>
+      </ul>
+    {% if current_user.is_authenticated %}
+    <h1>youre logged in {{current_user.username}}</h1>
+    <a href="/todo">go to your todo list</a>
+    <a href="/logout">logout</a>
+    {% else %}
+    <h1>youre not logged in</h1>
+    <p>please login or register to manage your tasks</p>
+    {% endif %}
+</body>
+</html>

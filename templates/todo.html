@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to do list</title>
+</head>
+<body>
+    <h1>To do list</h1>
+    <form action="/todo" method="POST">
+        <input type="text" name="title" placeholder="new_task" required>
+        <button type="submit">add task</button>
+    </form><br><br>
+
+    <table border="1">
+
+    <tr>
+        <th>id</th>
+        <th>title</th>
+        <th>action1</th>
+        <th>action2</th>
+        </tr>
+        {% for task in tasks %}
+    <tr>
+        <td>{{task.id}}</td>
+        <td>{{task.title}}</td>
+        <td><a href="/update/{{task.id}}">mark as {{'complete' if not task.complete else 'incomplete'}}</a></td>
+        <td><a href="/delete/{{task.id}}">delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="\logout">logout</a>
+
+</body>
+</html>
